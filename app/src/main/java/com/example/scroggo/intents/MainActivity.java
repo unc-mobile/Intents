@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (view.getId() == R.id.button) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(intent, 1);
+        } else if (view.getId() == R.id.button3) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://xkcd.com"));
+            startActivity(intent);
         }
     }
 }
