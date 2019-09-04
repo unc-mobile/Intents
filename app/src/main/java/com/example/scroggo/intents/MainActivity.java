@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         if (view.getId() == R.id.button2) {
             Intent intent = new Intent(this, Receiver.class);
+            intent.putExtra(Intent.EXTRA_TEXT, "text from an intent");
             startActivity(intent);
         } else if (view.getId() == R.id.button) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
