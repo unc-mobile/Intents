@@ -21,11 +21,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bundle extras = data.getExtras();
-        Bitmap imageBitmap = (Bitmap) extras.get("data");
+        if (resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            if (extras == null) {
+                return;
+            }
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
 
-        ImageView img = (ImageView) findViewById(R.id.imageView);
-        img.setImageBitmap(imageBitmap);
+            ImageView img = (ImageView) findViewById(R.id.imageView);
+            img.setImageBitmap(imageBitmap);
+        }
     }
 
     public void onClick(View view) {
